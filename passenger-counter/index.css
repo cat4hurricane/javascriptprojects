@@ -20,6 +20,12 @@ h2 {
 	margin-bottom: 20px;
 }
 
+p {
+	color: brown;
+	margin-top: 0;
+	margin-bottom: 20px;
+}
+
 button {
 	border: none;
 	padding-top: 10px;
