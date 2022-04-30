@@ -1,6 +1,7 @@
 //variable declare for global use
 let firstCard = 3;
 let secondCard = 10;
+let cards = [firstCard, secondCard]; //array
 
 let sum = firstCard + secondCard;
 let hasBlackjack = false;
@@ -14,10 +15,15 @@ let messageEl = document.getElementById("message-el");
 let sumEl = document.getElementById("sum-el");
 
 let cardsEl = document.getElementById("cards-el");
-	//function that lets you play
+
 function startGame() {
+	renderGame();
+}
+
+	//function that lets you play
+function renderGame() {
 	//card counting, showsmup on screen
-	cardsEl.textContent = "Cards: " + firstCard + " " + secondCard;
+	cardsEl.textContent = "Cards: " + cards[0] + " " + cards[1];
 	sumEl.textContent = "Sum: " + sum;
 	if (sum <= 20) {
 	//less than 21
@@ -45,8 +51,8 @@ function newCard() {
 	let card = 6;
 	//add to sum
 	sum+= card;
-	//rerun startGame()
-	startGame();
+	//rerun renderGame()
+	renderGame();
 }
 //cashout time
 console.log(hasBlackjack);
