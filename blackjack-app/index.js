@@ -6,7 +6,7 @@ let cards = [firstCard, secondCard]; //array
 let sum = firstCard + secondCard;
 let hasBlackjack = false;
 
-let cards = [firstCard, secondCard];
+
 
 let isAlive = true;
 
