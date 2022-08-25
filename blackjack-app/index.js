@@ -6,6 +6,8 @@ let cards = [firstCard, secondCard]; //array
 let sum = firstCard + secondCard;
 let hasBlackjack = false;
 
+let cards = [firstCard, secondCard];
+
 let isAlive = true;
 
 let message = "";
@@ -51,6 +53,7 @@ function newCard() {
 	let card = 6;
 	//add to sum
 	sum+= card;
+	cards.push(card);
 	//rerun renderGame()
 	renderGame();
 }
