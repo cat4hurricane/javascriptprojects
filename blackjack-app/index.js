@@ -7,7 +7,6 @@ let sum = firstCard + secondCard;
 let hasBlackjack = false;
 
 
-
 let isAlive = true;
 
 let message = "";
@@ -25,7 +24,10 @@ function startGame() {
 	//function that lets you play
 function renderGame() {
 	//card counting, showsmup on screen
-	cardsEl.textContent = "Cards: " + cards[0] + " " + cards[1];
+	cardsEl.textContent = "Cards: ";
+	for (let i = 0; i < cards.length; i++) {
+		cardsEl.textContent += cards[i];
+	}
 	sumEl.textContent = "Sum: " + sum;
 	if (sum <= 20) {
 	//less than 21
