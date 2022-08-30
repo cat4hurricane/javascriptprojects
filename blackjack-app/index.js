@@ -1,15 +1,16 @@
 //variable declare for global use
-let firstCard = getRandomCard();
-let secondCard = getRandomCard();
-let cards = [firstCard, secondCard]; //array
-let sum = firstCard + secondCard;
+let cards = []; //array
+let sum = 0;
 let hasBlackjack = false;
-let isAlive = true;
+let isAlive = false;
 let message = "";
 let messageEl = document.getElementById("message-el");
 let sumEl = document.getElementById("sum-el");
 let cardsEl = document.getElementById("cards-el");
 
+//restart blackjack
+console.log(cards);
+//functiion declarations
 function getRandomCard() {
 	let randomCard = Math.floor(Math.random() * 13)+1;
 	if (randomCard > 10) {
@@ -24,6 +25,11 @@ function getRandomCard() {
 }
 
 function startGame() {
+	isAlive = true;
+	let firstCard = getRandomCard();
+	let secondCard = getRandomCard();
+	cards = [firstCard, secondCard];
+	sum = firstCard + secondCard;
 	renderGame();
 }
 
@@ -56,6 +62,7 @@ function renderGame() {
 }
 	//drawing new card function
 function newCard() {
+	if (isAlive === true && hasBlackjack === false) {
 	console.log("Drawing a new card from the deck!");	
 	//variable for pulled card
 	let card = getRandomCard();
@@ -64,6 +71,7 @@ function newCard() {
 	cards.push(card);
 	//rerun renderGame()
 	renderGame();
+	}
 }
 //cashout time
 console.log(hasBlackjack);
