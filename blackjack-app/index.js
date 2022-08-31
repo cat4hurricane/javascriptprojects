@@ -2,8 +2,12 @@
 // player object creation
 let player = {
 	name: "Ali",
-	chips: 200
+	chips: 200,
+	sayHi: function() {
+		console.log("Hello!");
+	}
 }
+
 let cards = []; //array
 let sum = 0;
 let hasBlackjack = false;
@@ -16,6 +20,8 @@ let cardsEl = document.getElementById("cards-el");
 //getting user information and presenting it
 let playerEl = document.getElementById("player-el");
 playerEl.textContent = player.name + ": $" + player.chips;
+
+player.sayHi();
 
 //restart blackjack
 console.log(cards);
