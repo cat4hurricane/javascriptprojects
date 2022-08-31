@@ -7,18 +7,19 @@ let message = "";
 let messageEl = document.getElementById("message-el");
 let sumEl = document.getElementById("sum-el");
 let cardsEl = document.getElementById("cards-el");
-
+// player object creation
 let player = {
 	name: "Ali",
 	chips: 145
 }
-
+//getting user information and presenting it
 let playerEl = document.getElementById("player-el");
 playerEl.textContent = player.name + ": $" + player.chips;
 
 //restart blackjack
 console.log(cards);
 //functiion declarations
+//how we get our random card
 function getRandomCard() {
 	let randomCard = Math.floor(Math.random() * 13)+1;
 	if (randomCard > 10) {
@@ -31,7 +32,7 @@ function getRandomCard() {
 		return randomCard;
 	}
 }
-
+//function that lets us start the game
 function startGame() {
 	isAlive = true;
 	let firstCard = getRandomCard();
