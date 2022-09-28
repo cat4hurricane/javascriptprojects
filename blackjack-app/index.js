@@ -1,29 +1,64 @@
 //variable declare for global use
-let firstCard = 3;
-let secondCard = 10;
-let cards = [firstCard, secondCard]; //array
+// player object creation
+let player = {
+	name: "Ali",
+	chips: 200,
+	sayHi: function() {
+		console.log("Hello!");
+	}
+}
 
-let sum = firstCard + secondCard;
+let cards = []; //array
+let sum = 0;
 let hasBlackjack = false;
 
 let isAlive = true;
 
+let isAlive = false;
 let message = "";
-
 let messageEl = document.getElementById("message-el");
-
 let sumEl = document.getElementById("sum-el");
-
 let cardsEl = document.getElementById("cards-el");
 
+//getting user information and presenting it
+let playerEl = document.getElementById("player-el");
+playerEl.textContent = player.name + ": $" + player.chips;
+
+player.sayHi();
+
+//restart blackjack
+console.log(cards);
+//functiion declarations
+//how we get our random card
+function getRandomCard() {
+	let randomCard = Math.floor(Math.random() * 13)+1;
+	if (randomCard > 10) {
+		return 10;
+	} 
+	else if (randomCard === 1) {
+		return 11;
+	}
+	else {
+		return randomCard;
+	}
+}
+//function that lets us start the game
 function startGame() {
+	isAlive = true;
+	let firstCard = getRandomCard();
+	let secondCard = getRandomCard();
+	cards = [firstCard, secondCard];
+	sum = firstCard + secondCard;
 	renderGame();
 }
 
 	//function that lets you play
 function renderGame() {
 	//card counting, showsmup on screen
-	cardsEl.textContent = "Cards: " + cards[0] + " " + cards[1];
+	cardsEl.textContent = "Cards: ";
+	for (let i = 0; i < cards.length; i++) {
+		cardsEl.textContent += cards[i] + " ";
+	}
 	sumEl.textContent = "Sum: " + sum;
 	if (sum <= 20) {
 	//less than 21
@@ -46,14 +81,16 @@ function renderGame() {
 }
 	//drawing new card function
 function newCard() {
+	if (isAlive === true && hasBlackjack === false) {
 	console.log("Drawing a new card from the deck!");	
 	//variable for pulled card
-	let card = 6;
+	let card = getRandomCard();
 	//add to sum
 	sum+= card;
 	cards.push(card);
 	//rerun renderGame()
 	renderGame();
+	}
 }
 //cashout time
 console.log(hasBlackjack);
